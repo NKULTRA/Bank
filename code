@@ -17,7 +17,11 @@ class Bank:
         self.db = sqlite3.connect('card.s3db')
         self.conn = self.db.cursor()
         self.conn.execute(
-            'CREATE TABLE if not exists card (id INTEGER PRIMARY KEY AUTOINCREMENT, number TEXT, pin TEXT, balance INTEGER default 0)'
+            'CREATE TABLE if not exists card (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            number TEXT, 
+            pin TEXT, 
+            balance INTEGER default 0)'
         )
 
     def select_task(self, number):
