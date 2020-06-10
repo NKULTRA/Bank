@@ -5,8 +5,8 @@ import sqlite3
 class Bank:
 
     def __init__(self):
-        self.pin = None
         self.number = None
+        self.pin = None
         self.id = None
         self.balance = None
         self.db = None
@@ -81,6 +81,8 @@ class Bank:
             'delete from card where number = ?', (self.number,)
         )
         self.db.commit()
+        self.number = None
+        self.pin = None
         print('The account has been closed!\n')
         self.start_menu()
 
